@@ -19,7 +19,7 @@ You need to get a personal APIkey from callmebot.com before using the API. Keep 
 
 |Branch|Live Version|Status|Note| Test Version |
 | --- | --- | --- | --- | --- |
-|Homey Pro|**[no live version](https://homey.app/nl-nl/app/nl.lrvdlinden.signal/Signal/)**|:white_check_mark:|In development| **[No test version](https://homey.app/nl-nl/app/nl.lrvdlinden.signal/Signal/test)** |
+|Homey Pro|**[no live version](https://homey.app/nl-nl/app/nl.lrvdlinden.fb/Facebook-Messenger/)**|:white_check_mark:|In development| **[1.0.4](https://homey.app/nl-nl/app/nl.lrvdlinden.fb/Facebook-Messenger/test/)** |
 
 
 ---
@@ -73,12 +73,12 @@ You need to get a personal APIkey from callmebot.com before using the API. Keep 
 ---
 
 ## Changelog
-- 1.0.3 (16 jul 2023) App improvemend
- 
+- 1.0.4 (23 jun 2023) First Local and Cloud release
 <details>
 <summary>More changelog</summary>
 <br><br>
 <pre>
+- 1.0.3 (16 jul 2023) App improvemend
 - 1.0.2 (16 jul 2023) Fix: Typo login_credentials
 - 1.0.1 (16 jul 2023) Update readme
 - 1.0.0 (16 jul 2023) NEW: app release
@@ -101,6 +101,7 @@ or buy me a couple of :beers: or a :coffee: on [Ko-Fi ](https://ko-fi.com/lrvdli
 
 * [Lifeliner](https://community.homey.app/t/app-pro-lifeline-alerts-for-homey/83742)
 * [P2000](https://community.homey.app/t/app-pro-p2000-for-homey-dutch-112-911-alerts/83738)
-* [Signal Messenger ](https://community.homey.app/t/app-pro-signal-messenger/83624/1)
+* [Signal Messenger](https://community.homey.app/t/app-pro-signal-messenger/83624/1)
+* [Facebook Messenger](https://homey.app/nl-nl/app/nl.lrvdlinden.fb/Facebook-Messenger/test/)
 
 ---

@@ -30,35 +30,35 @@ class Device extends Homey.Device {
 
 	// this method is called when the Device is inited
 	async onInitDevice() {
-		// this.log('device init: ', this.getName(), 'id:', this.getData().id);
+		// this.homey.app.log('device init: ', this.getName(), 'id:', this.getData().id);
 		try {
 			// init some stuff
 			this.settings = await this.getSettings();
 
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 		}
 	}
 
 	// this method is called when the Device is added
 	async onAdded() {
-		this.log(`Added as device: ${this.getName()}`);
+		this.homey.app.log(`Added as device: ${this.getName()}`);
 	}
 
 	// this method is called when the Device is deleted
 	onDeleted() {
 		this.stopPolling();
 		// this.destroyListeners();
-		this.log(`Deleted as device: ${this.getName()}`);
+		this.homey.app.log(`Deleted as device: ${this.getName()}`);
 	}
 
 	onRenamed(name) {
-		this.log(`Device renamed to: ${name}`);
+		this.homey.app.log(`Device renamed to: ${name}`);
 	}
 
 	// this method is called when the user has changed the device's settings in Homey.
 	async onSettings() { // { newSettings }) {
-		this.log(`${this.getName()} device settings changed by user`);
+		this.homey.app.log(`${this.getName()} device settings changed by user`);
 		// do callback to confirm settings change
 		this.onInit();
 		return Promise.resolve('settings are saved'); // string can be returned to user
@@ -70,7 +70,7 @@ class Device extends Homey.Device {
 			if (value !== this.getCapabilityValue(capability)) {
 				this.setCapabilityValue(capability, value)
 					.catch((error) => {
-						this.log(error, capability, value);
+						this.homey.app.log(error, capability, value);
 					});
 			}
 		}
@@ -87,8 +87,8 @@ class Device extends Homey.Device {
 		try {
 			await setTimeoutPromise(delay, 'waiting is done');
 			if (fs.existsSync(filename)) fs.unlinkSync(filename);
-			this.log('deleted', filename);
-		} catch (error) { this.error(error); }
+			this.homey.app.log('deleted', filename);
+		} catch (error) { this.homey.app.error(error); }
 	}
 
 	async sendImage(args) {
@@ -130,10 +130,10 @@ class Device extends Homey.Device {
 			args2.imgUrl = `https://${cloudID}.connect.athom.com/app/nl.lrvdlinden.fb/userdata/${filename}`;
 			const result = await this.driver.sendImage(args2);
 			this.updateLastSent();
-			this.log(result);
+			this.homey.app.log(result);
 			return Promise.resolve(true);
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 			return Promise.reject(error);
 		}
 	}
@@ -145,10 +145,10 @@ class Device extends Homey.Device {
 			this.lastVoiceCall = now;
 			const result = await this.driver.sendVoice(args);
 			this.updateLastSent();
-			this.log(result);
+			this.homey.app.log(result);
 			return Promise.resolve(true);
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 			return Promise.reject(error);
 		}
 	}
@@ -157,10 +157,10 @@ class Device extends Homey.Device {
 		try {
 			const result = await this.driver.send(args);
 			this.updateLastSent();
-			this.log(result);
+			this.homey.app.log(result);
 			return Promise.resolve(true);
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 			return Promise.reject(error);
 		}
 	}
@@ -169,10 +169,10 @@ class Device extends Homey.Device {
 		try {
 			const result = await this.driver.sendGroup(args);
 			this.updateLastSent();
-			this.log(result);
+			this.homey.app.log(result);
 			return Promise.resolve(true);
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 			return Promise.reject(error);
 		}
 	}

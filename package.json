@@ -1,6 +1,6 @@
 {
   "name": "nl.lrvdlinden.fb",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "app.js",
   "scripts": {
     "build": "tsc"
@@ -9,6 +9,7 @@
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.1.0"
   },
   "dependencies": {
-    "fixture-stdout": "^0.2.1"
+    "fixture-stdout": "^0.2.1",
+    "homey-betterstack": "^0.3.2"
   }
 }

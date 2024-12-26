@@ -26,12 +26,12 @@ const qs = require('querystring');
 class Driver extends Homey.Driver {
 
 	async onDriverInit() {
-		this.log('onDriverInit');
+		this.homey.app.log('onDriverInit');
 	}
 
 	onPair(session) {
 		try {
-			this.log('Pairing of new message receiver started');
+			this.homey.app.log('Pairing of new message receiver started');
 
 			let number = '';
 			let apikey = '';
@@ -74,7 +74,7 @@ class Driver extends Homey.Driver {
 			});
 
 		} catch (error) {
-			this.error(error);
+			this.homey.app.error(error);
 		}
 
 	}
@@ -238,7 +238,7 @@ class Driver extends Homey.Driver {
 				});
 				res.once('end', () => {
 					if (!res.complete) {
-						this.error('The connection was terminated while the message was still being sent');
+						this.homey.app.error('The connection was terminated while the message was still being sent');
 						return reject(Error('The connection was terminated while the message was still being sent'));
 					}
 					res.body = resBody;
@@ -247,7 +247,7 @@ class Driver extends Homey.Driver {
 			});
 			req.on('error', (e) => {
 				req.destroy();
-				this.error(e);
+				this.homey.app.error(e);
 				return reject(e);
 			});
 			req.on('timeout', () => {
